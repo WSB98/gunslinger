@@ -33,6 +33,25 @@ There is a canister (similar to smart contracts, but with some extra perks) the 
 Wallet to connect to this canister through the IC and querying it for a registry of NFT holders. If the address of the user logging in is in the registry, then they
 gain access to the site - all through the magic of Plug!
 
+# Firebase
+Deploying to Firebase and getting your site up is very simple, and under the Spark plan you will likely be able to host your site for free until you have a few hundred
+active users. If you do not have an account with Firebase, you can set one up through your Gmail [on their website](https://firebase.google.com). <br><br>
+Once you have an account, you need to create a new project. Follow the steps on screen, enable Google Analytics if you wish to, then click into your project once you 
+are done. Next, click on Hosting in the shortcut menu, then Get Started. <br><br> Now you will be in a step by step guide for deploying your site, the steps are
+as follows:
+- Make sure you have a terminal window open in the root directory of your project
+- Install the Firebase CLI into your project using [NPM](https://www.npmjs.com/) and pasting this in your terminal ```npm install -g firebase-tools``` 
+- Tick the checkbox if you plan on using more Firebase services
+- Paste ```firebase login``` in terminal and use your account information to login
+- Paste ```firebase init``` in terminal. This will change your file structure a little.
+- Register your app if you checked the box in step 1
+- Paste ```npm install firebase``` in your terminal and run it
+- There will be some code you can include in your ```main.js``` if you plan on using other Firebase services
+- And finally, paste ```firebase deploy``` in your terminal and run it to deploy your site!
+
+### Domains
+Your domain will be the unique identifier of your app that you set when creating the project. If you wish to use an alternative domain, you can purchase one on Google Domains and follow the prompts on Firebase to add a custom domain. Then back in [Google Domains](https://domains.google.com) you will need to change some information to connect the site rather than just redirect to your app.
+
 ## Notes
 - The NFTs used in this template are minted on [ICPSwap](https://icpswap.com), which affects the function you will call from the canister
 - This is just the frontend template, and a guide is coming on hosting and options for databases
