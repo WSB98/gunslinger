@@ -5,17 +5,17 @@
 </picture>
 
 Welcome to the DAO kickstarter, codename ***Gunslinger***. The goal of Gunslinger is to be the go-to template for anyone, anywhere, who wants to create a DAO. We believe
-the sotrm of web3 is around the corner and it is people like you, expanding on systems like this, that will make it a reality! 
+the storm of web3 is around the corner and it is people like you, expanding on systems like this, that will make it a reality! 
 
 # Dependencies
 Outside of the Firebase CLI (more to be posted on that at a later date) there are no major dependencies in Gunslinger's frontend; however, there are some services and
 plugins we use to bring the whole site together. They are as follows.
 <br><br> **PLEASE NOTE: If you plan on using the serverless framework in this template, please
-review security of your site and ensure that no snensitive information is exposed**
+review security of your site and ensure that no sensitive information is exposed**
 
 ### Pagination
 A script is injected via JavaScript for each table in the code that controls the pagination for our tables. The source to the script can be found at the 
-[Kryogenix Website](https://www.kryogenix.org/code/browser/sorttable/). Credit to Stuart Langridge for this scrupt! The file 
+[Kryogenix's Website](https://www.kryogenix.org/code/browser/sorttable/). Credit to Stuart Langridge for this script! The file 
 [pagination.js](scripts/pagination.js) is where you will find this script in action.
 
 ### OpenAI API
@@ -26,7 +26,7 @@ should still give you some free tokens to use the API - the model we use in this
 find OpenAI's developer website [here](https://platform.openai.com/). 
 
 ### Plug Wallet
-Plug Wallet is a popular wallet on the Internet Computer blockchain that we are using for this template. Plug comes with a very simple *"SDK"* that doesn't require
+Plug Wallet is a popular wallet on the Internet Computer Blockchain that we are using for this template. Plug comes with a very simple *"SDK"* that doesn't require
 you to add a module or import anything for the base features that we use in this template. There are mobile authentication features in Alpha that you can implement if
 you wish to, you can find their docs [here](https://docs.plugwallet.ooo/getting-started/extension-components/). <br><br>
 There is a canister (similar to smart contracts, but with some extra perks) the template is connecting to in [cowboyAuth](scripts/cowboyAuth.js). We are using Plug
