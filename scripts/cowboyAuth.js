@@ -1,8 +1,60 @@
+
+
+
+
+
+/* This template was created by bkr_studio --> I suggest you read through all of this! (:
+
+    this file is where hte NFT authentiacation happens and it is important you understand
+    what is going on here so you can add your own NFT to this template.
+    
+    There will be things taht are different, and you will need to do some problem solving.
+
+    firstly, we are using the Internet Computer blockchain because of its low cost, high speed, 
+    wide availability of docs, and on-chain benefits if you choose to go that route later.
+
+    Thw wallet we are going to use is Plug Wallet, a popular option on ICP, find it here
+    (https://chrome.google.com/webstore/detail/plug/cfbfdhimifdmdehjmkdobpcjfefblkjm)
+    (https://plugwallet.ooo)
+    
+    the "nnsCanisterID" variable is the canister of YOUR NFT. right now, it is set the the 
+    Galactic Saloon: Space Cowboys canister
+    
+    If you want to be able to use the same functions for canister calls as this file, then
+    you will mint your NFTs on (https://ICPSwap.com)
+        this costs 8 ICP to create the canister, then the rest of minting is free.
+        there are other minting options, many more economical, but this is the canister used for
+        this collection
+        
+    in line 60 - 78 we are calling the plug wallet to request a connection to the user
+    and then storing their information for authentication, and some UI display
+    
+    in line 84 we query the canister using IDL service and a Plug Wallet Actor to get the registry
+    of NFT holders
+    
+    we see if the current user is in the registry and if they are,  we save the ID of the NFTs they own
+    to local storage so they can be shown later
+    
+    if the user does not own the NFT, the site boots them back to the login page
+    
+    at the bottom of the page, you will see the if statements that are responsible for security. it is 
+    liekly that you will need to add more or remove some of the ones i have used for your project*/
+
+
+
+
+
+
+
+
+
 // set vars
 var result = false;
 var userID;
 var cowboysArray = [];
+var loginBtn = document.getElementById('loginBtn')
 
+// these are used to save objects to local storage instad of just plain text
 Storage.prototype.setObj = function(key, obj) {
   return this.setItem(key, JSON.stringify(obj))
 }
@@ -18,7 +70,7 @@ if('login.html' === window.location.href.split('/')[window.location.href.split('
     //run on all pages 
     (async () => {
       // Canister Ids
-      const nnsCanisterId = 'y5ntm-piaaa-aaaag-qarta-cai'
+      const nnsCanisterId = 'y5ntm-piaaa-aaaag-qarta-cai' // Galactic Saloon canister --> needs to be changed to YOUR CANISTER ID
     
       // Whitelist
       const whitelist = [
@@ -26,7 +78,7 @@ if('login.html' === window.location.href.split('/')[window.location.href.split('
       ];
     
       // Host
-      const host = "https://mainnet.dfinity.network";
+      const host = "https://mainnet.dfinity.network"; // Connects us to the dfinity network / ICP Blockchain
     
       // Callback to print sessionData
       const onConnectionUpdate = () => {
@@ -41,8 +93,8 @@ if('login.html' === window.location.href.split('/')[window.location.href.split('
           timeout: 50000
         });
         
-        localStorage.setItem('principalID',await window.ic.plug.agent.getPrincipal());
-        localStorage.setItem('accountID',await window.ic.plug.accountId);
+        localStorage.setItem('principalID',await window.ic.plug.agent.getPrincipal()); // Principal ID --> these are two different types of wallet identifiers used on ICP
+        localStorage.setItem('accountID',await window.ic.plug.accountId); // Account ID
         userID = localStorage.getItem('principalID')
         accountID = localStorage.getItem('accountID')
 
@@ -53,7 +105,7 @@ if('login.html' === window.location.href.split('/')[window.location.href.split('
         const nnsPartialInterfaceFactory = ({ IDL }) => {
           
           return IDL.Service({
-            'getRegistry' : IDL.Func([], [IDL.Vec(IDL.Tuple(IDL.Nat32,IDL.Text))], ['query']),
+            'getRegistry' : IDL.Func([], [IDL.Vec(IDL.Tuple(IDL.Nat32,IDL.Text))], ['query']), //query the Canister for the registry of holders
           });
         };
 
@@ -74,7 +126,7 @@ if('login.html' === window.location.href.split('/')[window.location.href.split('
         
         const stats = await NNSUiActor.getRegistry();
 
-        for(i=0;i < stats.length;i++){
+        for(i=0;i < stats.length;i++){ // on login success, we are saving all the links to owned cowboys in an array, simultaneously saving their IDs
           var wallet = stats[i][1]
           var cowboy = stats[i][0]
           if(wallet == window.ic.plug.accountId){ //login success
@@ -103,10 +155,32 @@ if('login.html' === window.location.href.split('/')[window.location.href.split('
 
         if(localStorage.getItem('isLoggedIn') !== 'true'){ //redirected to login
           await localStorage.setItem('isLoggedIn','false')
-          window.location.assign('login.html')
+          var tempString = "could not find NFT"
+          loginBtn.innerHTML = ''
+          for (var j = 0; j < tempString.length; j++) {
+            (function(j) {
+                setTimeout(function() {
+                loginBtn.innerHTML += tempString.charAt(j);
+              }, j*50);
+            })(j);
+          }
         }
         else{
-          window.location.assign('index.html') // if login was set to true then the user will be directed to index
+
+          var tempString = "welcome back!"
+          loginBtn.innerHTML = ''
+          for (var j = 0; j < tempString.length; j++) {
+            (function(j) {
+                setTimeout(function() {
+                loginBtn.innerHTML += tempString.charAt(j);
+              }, j*50);
+            })(j);
+          }
+
+          setTimeout(async function(){
+            window.location.assign('index.html')
+          },1500)
+           // if login was set to true then the user will be directed to index
         }
         
 

@@ -848,7 +848,7 @@ body {
 .newPropForm{
   height: 60%;
   width: 80%;
-  transform: translate(0px,-800px);
+  transform: translate(0px,-1200px);
   position: fixed;
   top: 68px;
   display: flex;

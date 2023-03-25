@@ -1,4 +1,44 @@
 
+
+
+
+
+
+/* 
+
+This template was created by bkr_studio --> i suggest you read through this! (:
+
+    this file is responsible for the chatGPT section of this website and lets you create your own custom expereince 
+    in using chatGPT for your users/members
+
+    you will need an OpenAI account and API Key to edit this code to work for your organization. Otherwise,
+    you could consider somehting else for this page
+
+    if you do have an account and API key, you will see in this code that we call a lamnda function from AWS
+    to get our API key in response. This is a way to maintain a serverless structure to your website
+    and perform tasks from the frontend, but it is important to take every meaure you can for security when going
+    serverless.
+
+    once your API key is used to call openAI API, the message and response are stored in localStorage as a 
+    conversation log. the nature of doing it this way implies that your users chat logs are stored on their machines.
+    there are some coool things you could do with this.
+
+    You will also notice that since we are using the gpt3.5 endpoint, the messages are stored in an array. this means you could
+    pre-load logs to the API to instantly "train" the AI to do something specific
+
+    i cannot make any guarentees about the openAI API in the future, but as of now it seems it will stick around
+
+*/
+
+
+
+
+
+
+
+
+
+
 const historyMenuBtn = document.getElementById('historyTab');
 const historyMenu = document.getElementById('historyTable');
 const closeHistory = document.getElementById('closeHistory');
