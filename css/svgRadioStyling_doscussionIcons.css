@@ -1,0 +1,66 @@
+  /* interactivity of the ratings */
+  .svgRatingDiv .super-happy:hover .radioSpan3 .ratingSvg-small{
+    fill: rgb(0, 109, 217);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .super-happy input:checked ~ .radioSpan3 .ratingSvg-small{
+    transform: scale(1.1);
+    fill: rgb(0, 109, 217);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .super-happy input:focus ~ .radioSpan3 .ratingSvg-small{
+    fill: rgb(0, 109, 217);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .happy:hover .radioSpan3 .ratingSvg-small{
+    fill: rgb(0, 204, 79);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .happy input:checked ~ .radioSpan3 .ratingSvg-small{
+    transform: scale(1.1);
+    fill: rgb(0, 204, 79);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .happy input:focus ~ .radioSpan3 .ratingSvg-small{
+    fill: rgb(0, 204, 79);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .neutral:hover .radioSpan3 .ratingSvg-small{
+    fill: rgb(232, 214, 0);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .neutral input:checked ~ .radioSpan3 .ratingSvg-small{
+    transform: scale(1.1);
+    fill: rgb(232, 214, 0);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .neutral input:focus ~ .radioSpan3 .ratingSvg-small{
+    fill: rgb(232, 214, 0);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .sad:hover .radioSpan3 .ratingSvg-small{
+    fill: rgb(229, 132, 0);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .sad input:checked ~ .radioSpan3 .ratingSvg-small{
+    transform: scale(1.1);
+    fill: rgb(229, 132, 0);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .sad input:focus ~ .radioSpan3 .ratingSvg-small{
+    fill: rgb(229, 132, 0);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .super-sad:hover .radioSpan3 .ratingSvg-small{
+    fill: rgb(239, 42, 16);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .super-sad input:checked ~ .radioSpan3 .ratingSvg-small{
+    transform: scale(1.1);
+    fill: rgb(239, 42, 16);
+    transition: all ease 0.2s;
+  }
+  .svgRatingDiv .super-sad input:focus ~ .radioSpan3 .ratingSvg-small{
+    fill: rgb(239, 42, 16);
+    transition: all ease 0.2s;
+  }

@@ -1,0 +1,1047 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
+
+:root {
+    --offWhite: #e8e0d6;
+    --matteBlack: #222222;
+    --brightBlue: #64aef2;
+    --darkNavy: #001930;
+    --cyberpunkYellow: #f3e500;
+    --matteRed:#B33F40;
+    --matteGreen:#48A14D;
+
+    --lightGreyHover: rgba(160,160,160,20);
+    --foreground: var(--matteBlack);
+    --background: var(--offWhite);
+}
+
+body {
+    margin-top: 150px;
+    background-color: var(--background);
+    text-align: center;
+}
+
+/* custom scrollbar on divs
+    works on chrome, edge, safari */
+  div::-webkit-scrollbar {
+    width: 1rem;
+    border-radius: 10px;
+    background-color: var(--background);
+    color: var(--foreground);
+    transition: all ease 0.2s;
+  }
+  div::-webkit-scrollbar-track {
+    background-color:var(--background);
+    border-radius: 100vw;
+    margin-block: 4px;
+    transition: all ease 0.2s;
+  }
+  div::-webkit-scrollbar-thumb {
+    background-color: var(--foreground);
+    border-radius: 100vw;
+    border: 4px solid var(--background);
+    transition: all ease 0.2s;
+  }
+  div::-webkit-scrollbar-thumb:hover {
+    background-color: var(--lightGreyHover);
+    transition: all ease 0.2s;
+  }
+  body::-webkit-scrollbar {
+    width: 1rem;
+    background-color: var(--foreground);
+    color: var(--background);
+    transition: all ease 0.2s;
+  }
+  body::-webkit-scrollbar-track {
+    background-color:var(--foreground);
+    border-radius: 100vw;
+    margin-block: 4px;
+    transition: all ease 0.2s;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--background);
+    border-radius: 100vw;
+    border: 4px solid var(--foreground);
+    transition: all ease 0.2s;
+  }
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--lightGreyHover);
+    transition: all ease 0.2s;
+  }
+
+  .sentimentVotes{
+    width: 98%;
+    left: 1%;
+    height: 32px;
+    position: relative;
+    display: flex;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--matteBlack);
+  }
+
+.happiest-vote{
+  position: relative;
+  bottom: 0;
+  top: 0;
+  width: 50%;
+  background-color: rgb(0, 109, 217);;
+  transition: all ease 0.5s;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.happy-vote{
+  background-color:rgb(0, 204, 79);
+  position: relative;
+  bottom: 0;
+  top: 0;
+  width: 50%;
+  transition: all ease 0.5s;
+  border-radius: 0px 0px 0px 0px;
+}
+.neutral-vote{
+  background-color:rgb(232, 214, 0);
+  position: relative;
+  bottom: 0;
+  top:0;
+  width: 50%;
+  transition: all ease 0.5s;
+  border-radius: 0px 0px 0px 0px;
+}
+.sad-vote{
+  background-color:rgb(229, 132, 0);
+  position: relative;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  transition: all ease 0.5s;
+  border-radius: 0px 0px 0px 0px;
+}
+.saddest-vote{
+  background-color:rgb(239, 42, 16);
+  position: relative;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  transition: all ease 0.5s;
+  border-radius: 10px 0px 0px 10px;
+}
+.pctBar{
+  font-size: 16px;
+  padding: 5px;
+}
+.pctBar:hover{
+  transform: translate(0px,-5px);
+  box-shadow: -1px 0px 5px 0px #22222295;
+}
+
+  .vote {
+    width: 98%;
+    left: 1%;
+    height: 32px;
+    position: relative;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--matteBlack);
+  }
+  
+  .yea {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    background-color: var(--matteGreen);
+    transition: all ease 0.5s;
+    border-radius: 0px 10px 10px 0px;
+  }
+  .yea:hover{
+    box-shadow: 4px 1px 6px 0 #22222299;
+    transform: translate(0px,-10px);
+  }
+  
+  .nay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    background-color: var(--matteRed);
+    transition: all ease 0.5s;
+    border-radius: 10px 0px 0px 10px;
+  }
+  .nay:hover{
+    box-shadow: -4px 1px 6px 0 #22222299;
+    transform: translate(0px,-10px);
+  }
+  
+
+
+
+.container {
+    width: 90%;
+    position: relative;
+    border-radius: 10px;
+    padding:10px;
+    margin:5px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    justify-content: space-evenly;
+    flex-basis: content;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.container_noCenter {
+  width: 90%;
+  position: relative;
+  border-radius: 10px;
+  padding:10px;
+  margin:5px;
+  flex-basis: content;
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.discussionResponse {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin: 10px;
+  align-content: left;
+}
+
+.postText {
+  font-size: 20px;
+  word-spacing: 3px;
+  color:var(--foreground);
+}
+
+.timestamp{
+  position:relative;
+  right: -8px;
+}
+
+.addPropDiv{
+  margin: 6px;
+  padding: 6px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.addPropIcon{
+  padding: 0px;
+  position: relative;
+  justify-content: space-around;
+}
+.addPropLink{
+  margin: 8px;
+  padding: 10px;
+  border-radius: 5px;
+  transition:all ease 0.2s;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.addPropLink:hover{
+  transform:scale(1.1);
+  background-color: var(--foreground);
+}
+.addPropLink:active{
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+  transform:scale(1.0);
+  background-color: var(--foreground);
+}
+.addPropLink:hover .addPropIcon{
+  fill: var(--background);
+}
+.socialLinks{
+  margin: 4px;
+  padding: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-around;
+}
+.socialLink{
+  height: 64px;
+  width: 64px;
+  position: relative;
+  margin: 8px;
+  padding: 4px;
+  border-radius: 5px;
+  transition:all ease 0.2s;
+}
+.socialLink:hover{
+  transform:scale(1.1);
+  background-color: var(--foreground);
+}
+.socialLink:active{
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+  transform:scale(1.0);
+  background-color: var(--foreground);
+}
+.socialIcon{
+  padding: 0px;
+}
+.socialLink:hover .socialIcon {
+  fill: var(--background);
+}
+.upDoots {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 36px;
+}
+.totalDoots {
+  flex-grow: 1;
+  font-weight: 700;
+  height: 20px;
+  border-radius: 300px;
+  width: 50px;
+  background-color: var(--foreground);
+  color:var(--background);
+  font-family: 'IBM Plex Mono',monospace;
+}
+
+.upAndDown{
+  position: relative;
+}
+.upvote{
+  margin:0px;
+  padding:0px;
+}
+.downvote{
+  margin:0px;
+  padding:0px;
+}
+
+.replies{
+  margin-left: 25px;
+  margin-right: 10px;
+}
+.profile {
+  margin:5px;
+  padding:5px;
+  padding-top: 6px;
+  border:1px solid var(--foreground);
+  border-radius: 6px;
+  height: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition:all ease 0.2s;
+}
+.profile:hover{
+  background-color: var(--foreground);
+  color: var(--background);
+  box-shadow: 0px 0px 6px 0px #222;
+  transition:all ease 0.2s;
+}
+
+.comment {
+  font-size: 18px;
+  margin: 5px;
+  padding: 10px;
+  min-width: 150px;
+  color:var(--foreground);
+}
+
+.IBM-monospace{
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    color:var(--foreground);
+}
+
+.searchText{
+  color:var(--foreground);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  outline: none;
+}
+
+.cowboyPicture{
+  height: 280px;
+  width: 280px;
+  position: relative;
+  margin:18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+.cowboyPicture:hover{
+  box-shadow: 0px 0px 18px 0px var(--foreground);
+  transform: scale(1.01);
+}
+.cowboyDetailsMenu{
+  border: 1px solid var(--foreground);
+  border-radius: 5px;
+  transition: all ease 0.3s;
+}
+.navLogout{
+  fill: var(--background);
+  stroke: var(--background);
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+}
+
+.nftDiv{
+  height: 360px;
+  overflow: hidden;
+  background-color: var(--foreground);
+  color: var(--background);
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.titleHeader{
+    font-size: 36px;
+}
+
+.pseudo-element::after {
+  content: "";
+  display: flex;
+  height: 20px;
+  justify-content: space-around;
+  left: 100%;
+}
+
+
+.contentBox {
+    margin: 20px;
+    overflow-x: scroll;
+    width: 45%;
+    border-radius: 10px;
+    display: inline;
+}
+
+.neumorphicOut {
+    box-shadow: .15rem .15rem .3rem grey, 
+    -.1rem -.1rem .25rem rgb(255, 255, 235);
+    transition:all ease 0.2s;
+}
+
+/* .neumorphicOut:active{
+    box-shadow: inset .15rem .15rem .3rem grey, 
+    inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+    transition:all ease 0.2s;
+} */
+
+.neumorphicIn{
+    box-shadow: inset .15rem .15rem .3rem grey, 
+    inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+    transition:all ease 0.2s;
+}
+
+.contentHeader {
+    text-decoration:2px underline solid var(--foreground);
+}
+
+/* table styling */
+
+.testingTable1{
+    border-collapse: collapse;
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: none;
+    width: 99%;
+    padding: 20px;
+    color:var(--foreground);
+    background-color: var(--background);
+    margin-left:4px;
+    margin-right:4px;
+}
+.thead{
+    font-weight: 700;
+    background-color: var(--foreground);
+    color:var(--background);
+    padding: 0px;
+    transition: all .2s ease-in-out;
+    position: sticky;
+    top: 0;
+    text-align: center;
+    font-size: larger;
+    z-index:10;
+}
+
+.trow {
+    border-bottom:var(--foreground) solid 1px;
+    width: 100%;
+    justify-content: center;
+    background-color: none;
+    transition: all ease 0.3s;
+  }
+  
+.trow2 {
+    border-bottom:var(--foreground) solid 1px;
+    width: 100%;
+    justify-content: center;
+    background-color: none;
+    transition: all ease 0.3s;
+
+}
+.trow2:hover {
+    box-shadow: inset .15rem .15rem .3rem grey, 
+    inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+} 
+.trow3 {
+  border-bottom:var(--foreground) solid 1px;
+  width: 100%;
+  justify-content: center;
+  background-color: none;
+  transition: all ease 0.3s;
+
+}
+.trow3:hover {
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+} 
+.trow4 {
+  border-bottom:var(--foreground) solid 1px;
+  width: 100%;
+  justify-content: center;
+  background-color: none;
+  transition: all ease 0.3s;
+  cursor: pointer;
+
+}
+.trow4:hover {
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}  
+.trow:hover {
+    box-shadow: inset .15rem .15rem .3rem grey, 
+    inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    
+}
+.tdata {
+    font-size: medium;
+    padding:20px;
+    text-align: center;
+    transition: all .2s ease-in-out;
+    color: var(--foreground);
+}
+  
+  
+.tdata:hover {
+    transform:scale(1.1);
+}
+
+/* css for pagination */
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    transition:all ease 0.2s;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  
+  #pagination ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #pagination li {
+    margin-right: 10px;
+  }
+  
+  #pagination a {
+    display: block;
+    padding: 5px 10px;
+    background-color: var(--background);
+    color: var(--foreground);
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: .15rem .15rem .3rem grey, 
+    -.1rem -.1rem .25rem rgb(255, 255, 235);
+    transition:all ease 0.2s;
+  }
+  
+  #pagination a:hover {
+    background-color: var(--lightGreyHover);
+  }
+
+  #pagination a:active{
+    box-shadow: inset .15rem .15rem .3rem grey, 
+    inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  }
+  
+  #pagination a.active {
+    color: var(--foreground);
+    box-shadow: inset .15rem .15rem .3rem grey, 
+    inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+    transition:all ease 0.2s;
+  }
+
+/* paginationf or passed porposal table */
+#pagination2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    transition:all ease 0.2s;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  
+#pagination2 ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#pagination2 li {
+    margin-right: 10px;
+}
+
+#pagination2 a {
+    display: block;
+    padding: 5px 10px;
+    background-color: var(--background);
+    color: var(--foreground);
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: .15rem .15rem .3rem grey, 
+    -.1rem -.1rem .25rem rgb(255, 255, 235);
+    transition:all ease 0.2s;
+}
+
+#pagination2 a:hover {
+    background-color: var(--lightGreyHover);
+}
+
+#pagination2 a:active{
+    box-shadow: inset .15rem .15rem .3rem grey, 
+    inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+}
+
+#pagination2 a.active {
+    color: var(--foreground);
+    box-shadow: inset .15rem .15rem .3rem grey, 
+    inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+    transition:all ease 0.2s;
+}
+
+/* paginationf or passed porposal table */
+#pagination3 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  transition:all ease 0.2s;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#pagination3 ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#pagination3 li {
+  margin-right: 10px;
+}
+
+#pagination3 a {
+  display: block;
+  padding: 5px 10px;
+  background-color: var(--background);
+  color: var(--foreground);
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: .15rem .15rem .3rem grey, 
+  -.1rem -.1rem .25rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+}
+
+#pagination3 a:hover {
+  background-color: var(--lightGreyHover);
+}
+
+#pagination3 a:active{
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+}
+
+#pagination3 a.active {
+  color: var(--foreground);
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+}
+
+#pagination4 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  transition:all ease 0.2s;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#pagination4 ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#pagination4 li {
+  margin-right: 10px;
+}
+
+#pagination4 a {
+  display: block;
+  padding: 5px 10px;
+  background-color: var(--background);
+  color: var(--foreground);
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: .15rem .15rem .3rem grey, 
+  -.1rem -.1rem .25rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+}
+
+#pagination4 a:hover {
+  background-color: var(--lightGreyHover);
+}
+
+#pagination4 a:active{
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+}
+
+#pagination4 a.active {
+  color: var(--foreground);
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+}
+  /* not able to select -- prevents highlighting and annoying clicking interactions */
+  /* no select class */
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+.clickable {
+    cursor: pointer;
+}
+
+/* voting styling */
+
+.currentProposalBox {
+    margin-top: 8px;
+    width: 95%;
+    border-radius: 10px;
+    height: 600px;
+    overflow-y:scroll;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.proposalItem {
+    margin: 10px;
+    width: 45%;
+    border-radius: 10px;
+}
+
+.proposalTitle_and_Author{
+    width: 80%;
+    text-align: center;
+    height: auto;
+    padding: 5px;
+    color: var(--background);
+    background-color: var(--foreground);
+    border-radius: 15px;
+}
+
+.align-left{
+    text-align: left;
+    padding: 12px;
+}
+
+
+.code-wrapper {
+    text-align: left;
+    font-size: 14px;
+    padding: 20px;
+    color:var(--foreground);
+}
+
+.themeSelector {
+  fill: var(--background);
+}
+
+.themeSelectionContainer{
+  background-color: var(--foreground);
+  height: 32px;
+  width: 32px;
+  padding: 3px;
+  border-radius: 5px;
+  position: fixed;
+  top:120px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.ratingSvg {
+  fill: var(--foreground);
+  height: 3.6rem;
+  width: 3.6rem;
+  margin: 0.2rem;
+  transition: all ease 0.2s;
+}
+
+.svgRefresh {
+  fill: var(--background);
+  height: 1rem;
+  width: 1rem;
+  margin: 0.2rem;
+  transition: all ease 0.2s;
+}
+
+
+.ratingSvg-small {
+  fill: var(--foreground);
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 0.05rem;
+  transition: all ease 0.2s;
+}
+
+.newPropForm{
+  height: 60%;
+  width: 80%;
+  transform: translate(0px,-800px);
+  position: fixed;
+  top: 68px;
+  display: flex;
+  padding: 10px;
+  left: calc(50% - 40%);
+  transition:all ease 0.3s;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+}
+
+
+.showPropForm{
+  transform: translate(0px,100px);
+  z-index: 120;
+}
+
+
+
+.inputLabel{
+  margin:8px;
+  position: relative;
+  width: 100%;
+}
+.topicHeader{
+  left: -25px;
+  position: relative;
+}
+.newPropForm input[type='text']{
+  background-color: #00000000;
+  border: 1px solid var(--foreground);
+  border-radius: 0.3rem;
+  height: 24px;
+  font-size: 18px;
+  left:80px;
+  position: absolute;
+}
+
+.formBody{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.closeBtn{
+  width: 15%;
+  left: calc(50% - 5%);
+  padding: 5px;
+  border-radius:20px;
+  text-align: center;
+  justify-content: space-around;
+  position: fixed;
+  height: 28px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  background-color: #00000000;
+  transform: translate(0px,-600px);
+  transition:all ease 0.3s;
+  z-index: 200;
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.showCloseBtn{
+  transform: translate(0px,-25px);
+}
+.closeBtn:hover{
+  transform: scale(1.1);
+  background-color: var(--foreground);
+  color:var(--background);
+}
+.body_input{
+  margin:8px;
+}
+
+.body_input textarea{
+  font-size: 16px;
+  background-color: #00000000;
+  border: 1px solid var(--foreground);
+  border-radius: 0.3rem;
+  height: 24px;
+  font-size: 18px;
+  left:0px;
+  width: 100%;
+  position: relative;
+  height: 200px;
+}
+
+.submitButton{
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 50px;
+  width: 40%;
+  justify-content: center;
+  text-align:center;
+  position: relative;
+  left: calc(50% - 13%);
+  background-color: #00000000;
+  border:none;
+  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 20px;
+  color: var(--foreground);
+}
+.submitButton:hover{
+  transform: scale(1.05);
+}
+.submitButton:active{
+  box-shadow: inset .15rem .15rem .3rem grey, 
+  inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  transition:all ease 0.2s;
+}
+
+.contentBox input[type='text']{
+  border-radius: 5px;
+  padding: 12px;
+  display: flex;
+  position: relative;
+  width: 85%;
+  left: 5%;
+  margin-bottom: 12px;
+  border: 1px solid #00000000;
+  background-color: #00000000;
+}
+
+.typing-animation p {
+  display: inline-block;
+  overflow: hidden;
+  animation: typingAnimation 3s steps(30, end);
+}
+
+@keyframes typingAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.loginInput{
+  font-size: 28px;
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  outline:none;
+  border: 1px solid #00000000;
+  background-color: var(--background);
+  font-family: 'IBM Plex Mono', monospace;
+  border-radius: 5px;
+  color: var(--foreground);
+}
+
+.loginInput:hover{
+  color: var(--background);
+  background-color: var(--foreground);
+  transform:scale(1.05);
+  cursor: pointer;
+}
+
+.neuronAddress{
+  width: 80%;
+  position: relative;
+  border: 1px solid var(--foreground);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: large;
+  font-family: 'IBM Plex Mono', monospace;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.neuronTitle{
+  width: 100%;
+  margin-top: 6px;
+}
+
+@media(max-width:904px){
+  .loginInput{
+    font-size: 18px;
+  }
+  .typing-animation p {
+    display: inline-block;
+    overflow: hidden;
+    animation: typingAnimation 2s steps(20, end);
+    font-size: 26px;
+  }
+}

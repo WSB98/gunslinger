@@ -1,0 +1,271 @@
+.chatContainer {
+    height: 800px;
+    width: 92.5%;
+    position: relative;
+    border-radius: 10px;
+    padding:10px;
+    margin:5px;
+    flex-basis: content;
+    display: inline-flex;
+}
+
+.tableHeader{
+    border-radius: 10px;
+}
+
+.code-lang {
+    color: blue;
+    font-weight: bold;
+  }
+  
+
+.historyTab{
+    display: none;
+    transform: translate(-600px,0px);
+    z-index: 50;
+    background-color: var(--foreground);
+    border-radius: 4px;
+    transition: all ease 0.1s;
+    top: 164px;
+    left:8px
+}
+
+.closeHistory{
+    position: relative;
+    display: none;
+}
+
+
+
+.historyTab:active{
+    box-shadow: inset .15rem .15rem .3rem grey, 
+    inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+    transform: scale(0.9);
+}
+
+.historyTable{
+    width: 20%;
+    border-radius: 5px;
+    transform: translate(0px,0px);
+    margin: 4px;
+    background-color: var(--background);
+    border: 1px solid var(--foreground);
+    z-index: 50;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all ease 0.3s ;
+}
+.tabIcon {
+    fill: var(--background);
+}
+
+.dialogueContaioner{
+    width: 80%;
+    padding: 5px;
+    margin: 5px;
+    margin-left: 20px;
+    height: 85%;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+pre {
+    background-color: var(--background);
+    color: var(--foreground);
+    border-radius: 4px;
+    margin: 0;
+    padding: 1em;
+    overflow-x: auto;
+  }
+pre code {
+    font-family: monospace;
+}
+pre code .code-lang {
+    color: var(--foreground);
+    font-weight: bold;
+}
+  
+
+.historyTable_data {
+    width: 90%;
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+.userInput{
+    width: 70%;
+    position: absolute;
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid var(--foreground);
+    margin: 5px;
+    top: 745px;
+    left:22.5%;
+    background-color: #00000000;
+    outline: none;
+    font-size: 18px;
+    color: var(--foreground);
+}
+.sendIcon{
+    background-color: #00000000;
+    fill: var(--foreground);
+    padding: 11px;
+    top: 738px;
+    right: 3px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+}
+.sendIcon:hover{
+    background-color: var(--foreground);
+    fill:var(--background);
+}
+.sendIcon:active{
+    transform: scale(0.95);
+    transition: all ease 0.2s;
+}
+
+.chatResponse {
+    max-width: 65%;
+    height: auto;
+    background-color: var(--foreground);
+    color: var(--background);
+    border-radius: 5px 5px 15px 0px;
+    left: 20px;
+    position: relative;
+    padding: 5px;
+    font-size: 20px;
+    overflow: auto;
+}
+.userMessage {
+    max-width: 60%;
+    width: auto;
+    left: 35%;
+    height: auto;
+    background-color: var(--background);
+    color: var(--foreground);
+    border: 1px solid var(--foreground);
+    border-radius: 5px 5px 0px 15px;
+    position: relative;
+    font-size: 20px;
+    padding: 5px;
+}
+.hidden_column{
+    display: none;
+}
+.spinner {
+    animation: spin 2s linear infinite;
+    background: linear-gradient(to bottom, var(--foreground) 100%, var(--background) 95%);
+    border-image-outset: 0px;
+    border-style:inset;
+    border-radius: 100px;
+  }
+
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+#sendMessage.spinner path {
+fill: transparent;
+}
+
+
+
+pre::-webkit-scrollbar {
+    width: 1rem;
+    background-color: var(--foreground);
+    color: var(--background);
+    transition: all ease 0.2s;
+}
+pre::-webkit-scrollbar-track {
+    background-color:var(--foreground);
+    border-radius: 100vw;
+    margin-block: 4px;
+    transition: all ease 0.2s;
+}
+pre::-webkit-scrollbar-thumb {
+    background-color: var(--background);
+    border-radius: 100vw;
+    border: 4px solid var(--foreground);
+    transition: all ease 0.2s;
+}
+pre::-webkit-scrollbar-thumb:hover {
+    background-color: var(--lightGreyHover);
+    transition: all ease 0.2s;
+}
+.dialogueContaioner::-webkit-scrollbar {
+    width: 1rem;
+    background-color: var(--background);
+    color: var(--foreground);
+    transition: all ease 0.2s;
+    border-radius: 0px;
+}
+.dialogueContaioner::-webkit-scrollbar-track {
+    background-color:var(--background);
+    border-radius: 0px;
+    margin-block: 4px;
+    transition: all ease 0.2s;
+}
+.dialogueContaioner::-webkit-scrollbar-thumb {
+    background-color: var(--foreground);
+    border-radius: 100vw;
+    border: 4px solid var(--background);
+    transition: all ease 0.2s;
+}
+.dialogueContaioner::-webkit-scrollbar-thumb:hover {
+    background-color: var(--lightGreyHover);
+    transition: all ease 0.2s;
+}
+
+@media (max-width:900px) {
+    .chatContainer {
+        height: 600px;
+        width: 92.5%;
+        position: relative;
+        border-radius: 10px;
+        padding:10px;
+        margin:5px;
+        flex-basis: content;
+        display: inline-flex;
+    }
+    .historyTable{
+        transform: translate(-1000px,0px);
+        width: 200%;
+        height: 85%;
+    }
+    .historyTab{
+        transform: translate(0px,0px);
+        display: inline;
+
+    }
+    .closeHistory{
+        position: relative;
+        display: inline;
+    }
+    .dialogueContaioner{
+        position: absolute;
+        margin-top: 12px;
+        width: 95%;
+        height: 82.5%;
+        top: 0px;
+        left: 2%;
+        margin-left: 0px;
+    }
+    .userInput{
+        width: 85%;
+        left: 1%;
+        top: 545px;
+    }
+    .sendIcon{
+        background-color: #00000000;
+        fill: var(--foreground);
+        padding: 6px;
+        top: 545px;
+        right: 0px;
+        position: relative;
+    }
+    .spinner{
+        border-radius: 20px;
+    }
+}

@@ -1,0 +1,210 @@
+.swap-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #00000000;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .swap-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .swap-form h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .form-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .form-input label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  .input-container input {
+    height: 40px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 48px;
+    font-size: 32px;
+    outline: none;
+    top:8px;
+  }
+  
+
+  .input-container select {
+    height: 78px;
+    width: 34%;
+    border: 1px solid var(--foreground);
+    border-radius: 0px 5px 5px 0px;
+    font-size: 32px;
+    background-color: var(--foreground);
+    color: var(--background);
+    outline: none;
+    padding-left: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  
+  .form-action button {
+    height: 40px;
+    width: 25%;
+    border: none;
+    border-radius: 5px;
+    background-color: #00000000;
+    color: var(--foreground);
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'IBM Plex Mono', monospace;
+    cursor: pointer;
+    margin-top: 32px;
+    transition:all ease 0.2s;
+  }
+
+  .form-action button:hover{
+    transform: scale(1.05);
+  }
+  .form-action button:active{
+    box-shadow: inset .15rem .15rem .3rem grey, 
+    inset -.15rem -.15rem .3rem rgb(255, 255, 235);
+  }
+
+
+  /* Style the select element */
+select {
+    appearance: none; /* Removes default styling on some browsers */
+    -webkit-appearance: none; /* Removes default styling on Safari */
+    cursor: pointer;
+    
+  }
+  
+  /* Style the dropdown arrow */
+  select::-ms-expand {
+    display: none; /* Removes default arrow on IE10 and IE11 */
+  }
+  
+  select::after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    color: var(--foreground);
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(50%);
+  }
+  
+  /* Style the option elements */
+  option {
+    background-color: var(--foreground);
+    color: var(--background);
+    font-size: 16px;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 10px;
+  }
+
+  .form-input::before{
+    background-color: var(--foreground);
+    content: "";
+    top: 104px;
+    left:-47%;
+    height: 76px;
+    width: 5%;
+    position: relative;
+    padding: 0px;
+    margin: auto;
+    border-radius: 5px 0px 0px 5px;
+  }
+  
+  .selectToken{
+    height: 78px;
+    width: 34%;
+    border: 1px solid var(--foreground);
+    border-radius: 0px 5px 5px 0px;
+    font-size: 32px;
+    background-color: var(--foreground);
+    color: var(--background);
+    outline: none;
+    padding-left: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    cursor: pointer;
+    justify-content: space-around;
+    position: relative;
+  }
+  .selectToken::after{
+    content: '\25BC'; /* Unicode character for down arrow */
+    color: var(--background);
+    position: relative;
+    transform: translateY(40%);
+    font-size: 20px;
+    margin-left: 5px;
+    padding-right: 12px;
+  }
+
+  .hidden{
+    transform: translate(0px, -1200px);
+    opacity: 0;
+  }
+
+  .tokenList1{
+    font-size: 16px;
+    border-collapse: collapse;
+    background-color: none;
+  }
+
+  .tokenListDiv{
+    position: absolute;
+    top: 120px;
+    left: calc(50% - 220px);
+    height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    backdrop-filter: blur(10px);
+    font-family: 'IBM Plex Mono', monospace;
+    border-radius: 5px;
+    border-collapse: collapse;
+    background-color: none;
+    color:var(--foreground);
+    border: 1px solid #222;
+  }
+
+  .trow{
+    padding: 10px;
+    cursor: pointer;
+  }
+  .tdata{
+    padding:10px;
+    font-size: 22px;
+  }
+  .thead{
+    padding:12px;
+    margin: 0px;
+  }
+
+  .hidden_column{
+    display: none;
+  }
+
+  @media (max-width: 904px) {
+    .tdata{
+      font-size: 16px;
+    }
+    .tokenListDiv{
+      left: calc(50% - 165px);
+    }
+  }
